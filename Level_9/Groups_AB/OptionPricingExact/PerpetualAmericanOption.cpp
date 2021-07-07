@@ -1,6 +1,5 @@
 /*
 This file implements all the public member function declared in PerpetualAmericanOption.hpp
-
 */
 
 #include <cmath>
@@ -10,8 +9,8 @@ This file implements all the public member function declared in PerpetualAmerica
 #include "AccompaniedOptionFunctions.hpp"
 #include "EuropeanOption.hpp"
 
-PerpetualAmericanOption::PerpetualAmericanOption() : Option() {}				// Invoke Base Default Constructor						
-PerpetualAmericanOption::PerpetualAmericanOption(const PerpetualAmericanOption& source) : Option(source) {} // Invoke Base Copy Constructor 
+PerpetualAmericanOption::PerpetualAmericanOption() : Option() {}						// Invoke Base Default Constructor						
+PerpetualAmericanOption::PerpetualAmericanOption(const PerpetualAmericanOption& source) : Option(source) {} 	// Invoke Base Copy Constructor 
 PerpetualAmericanOption::PerpetualAmericanOption(double newK, double newSigma, double newr, double newS, double newb, int newtype) : Option(newK, newSigma, newr, newS, newb, newtype) {}	// Invoke Base Parameterized Constructor 
 
 PerpetualAmericanOption::~PerpetualAmericanOption() {}
@@ -34,7 +33,7 @@ double PerpetualAmericanOption::CalcOptionPrice() {
 	if (type == 1) {							// Calculate Option given a Call
 		price = K * pow(fac2, y1) / (y1 - 1.0); 
 	}
-	else {										// Calculate Option given a Put
+	else {									// Calculate Option given a Put
 		price = K * pow(fac3, y2) / (1.0 - y2); 
 	}
 
