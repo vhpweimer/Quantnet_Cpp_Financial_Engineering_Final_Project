@@ -30,7 +30,7 @@ double EuropeanOption::CalcOptionPrice() {
 	d2val = d1val - sigma * sqrt(T);
 
 	if (type == 1) {
-		price = S * exp((b - r) * T) * cdf(N, d1val) - K * exp(-r * T) * cdf(N, d2val);	// Price for Call option
+		price = S * exp((b - r) * T) * cdf(N, d1val) - K * exp(-r * T) * cdf(N, d2val);		// Price for Call option
 	}
 	else {
 		price = K * exp(-r * T) * cdf(N, -d2val) - S * exp((b - r) * T) * cdf(N, -d1val);	// Price for Put option
@@ -91,7 +91,7 @@ void EuropeanOption::RangeofOptionPrices(const vector<vector<double>>& source, c
 		if (stringtype == "Option") {
 			optionPrices.push_back(CalcOptionPrice());
 		} 
-		else if(stringtype == "Delta") {
+		else if (stringtype == "Delta") {
 			optionPrices.push_back(Delta());
 		} 
 		else {
@@ -120,7 +120,6 @@ void EuropeanOption::RangeofDeltas(const double& startValue, const double& inter
 	vector<double> optionCallDeltas;
 
 	for (int i = 0; i != size; i++) {
-
 		optionCallDeltas.push_back(Delta(RangeofSGreeks[i]));
 		cout << "Underlying Stock Price: " << RangeofSGreeks[i] << ", Call Delta Price: " << optionCallDeltas[i] << endl;
 	}
@@ -135,7 +134,6 @@ void EuropeanOption::RangeofDeltas(const double& startValue, const double& inter
 
 	for (int i = 0; i != size; i++) {
 		optionCallDeltas.push_back(ApproximateDelta(RangeofSGreeks[i], Rangeofh[i]));
-
 		cout << "Underlying Stock Price: " << RangeofSGreeks[i] << ", Call Delta Price: " << optionCallDeltas[i] << ", h: "<< Rangeofh[i] << endl;
 	}
 }
@@ -206,7 +204,6 @@ double EuropeanOption::ApproximateGamma(const double& newS, const double& h) {
 	double approxGammaPrice = (CalcOptionPrice(newS + h) - 2 * CalcOptionPrice(newS) + CalcOptionPrice(newS - h)) / (h * h);
 
 	return approxGammaPrice;
-
 }
 
 // Implement Overloaded Operators
