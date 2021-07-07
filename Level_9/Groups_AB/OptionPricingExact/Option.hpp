@@ -35,7 +35,7 @@ protected:
 
 	double T;											// Time to maturity
 	double K;											// Strike Price
-	double sigma;										// Volatility
+	double sigma;											// Volatility
 	double r;											// Risk Free Rate
 	double S;											// Underlying stock price
 
@@ -46,9 +46,9 @@ protected:
 public: 
 
 	Option();																			 // Default Constructor
-	Option(const Option& source);														 // Copy Constructor
-	Option(double newK, double newSigma, double newr, double newS, double newb, int newtype); // Parameterized Constructor without T
-	Option(double newT, double newK, double newSigma, double newr, double newS, double newb, int newtype); // Parameterized Constructor with T 
+	Option(const Option& source);														// Copy Constructor
+	Option(double newK, double newSigma, double newr, double newS, double newb, int newtype); 						// Parameterized Constructor without T
+	Option(double newT, double newK, double newSigma, double newr, double newS, double newb, int newtype); 					// Parameterized Constructor with T 
 
 	virtual ~Option();
 
